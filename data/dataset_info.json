@@ -245,5 +245,14 @@
       "response": "",
       "history": ""
     }
+  },
+  "ta": {
+    "file_name": "llama_eft.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output",
+      "history": ""
+    }
   }
 }

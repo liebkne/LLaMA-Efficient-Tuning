@@ -1,16 +1,23 @@
+import sys
+
 from llmtuner import ChatModel
 
 
 def main():
     chat_model = ChatModel()
     history = []
-    print("Welcome to the CLI application, use `clear` to remove the history, use `exit` to exit the application.")
+    print(
+        "Welcome to the CLI application, use `clear` to remove the history, use `exit` to exit the application.",
+    )
 
     while True:
         try:
-            query = input("\nUser: ")
+            print("\nUser: ")
+            query = sys.stdin.read()
         except UnicodeDecodeError:
-            print("Detected decoding error at the inputs, please set the terminal encoding to utf-8.")
+            print(
+                "Detected decoding error at the inputs, please set the terminal encoding to utf-8.",
+            )
             continue
         except Exception:
             raise
@@ -31,7 +38,7 @@ def main():
             response += new_text
         print()
 
-        history = history + [(query, response)]
+        history = [*history, (query, response)]
 
 
 if __name__ == "__main__":
